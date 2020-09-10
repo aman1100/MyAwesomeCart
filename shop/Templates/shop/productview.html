@@ -1,0 +1,43 @@
+{% extends 'shop/basic.html'%}
+
+{% block title%} {{product.product_name}}{% endblock %}
+{% block body%}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-4">
+            <div class="row">
+                <img  src="/media/{{product.image}}" width="300px" height="300px">
+            </div>
+            <div class="row">
+                <a href="/shop/checkout"  > <button class="btn btn-primary mx-4 my-2 " onclick="myFunction()" >Buy Now</button></a>
+                <a href="/shop"> <button class="btn btn-primary my-2">Back to Home</button></a>
+            </div>
+        </div>
+        <div class="col-md-8">
+
+            <h1 >Product: <span id="namepr">{{product.product_name}}</span></h1>
+            <p><b>Rs.<span id="pricepr">{{product.price}}</span></b></p>
+            <p>{{product.desc}}</p>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock%}
+{% block js %}
+<script>
+    function myFunction() {
+        cart = {};
+        var idstr = this.toString();
+        qty = 1;
+        var name = $('#namepr').text();
+        var price = $('#pricepr').text();
+        console.log(name);
+        cart[idstr] = [qty, name, parseInt(price)];
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+</script>
+{% endblock %}

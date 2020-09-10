@@ -1,0 +1,36 @@
+{% extends 'shop/basic.html'%}
+
+{% block title%} Contact us{% endblock%}
+{% block body%}
+<div class="container">
+    <h1>Contact Us!</h1>
+    <form action="/shop/contactus/" method="post"> {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="name">Phone Number</label>
+            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="name">Email Address</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="abc@gmail.com">
+        </div>
+        <div class="form-group">
+         <label for="name">How my we assist you?</label>
+         <textarea typeof="text" class="form-control" id="desc" rows="3" name="desc" placeholder="describe yor query here"></textarea>
+         </div>
+        <button type="submit" class="btn btn-success" onclick = "MyAlert()">Submit</button>
+        <script>
+            function MyAlert() {
+            alert("Your Query has been Submitted ");
+            }
+        </script>
+    </form>
+
+
+</div>
+
+
+{% endblock%}
