@@ -1,1 +1,2 @@
 # MyAwesomeCart
+python django project
